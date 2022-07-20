@@ -29,7 +29,7 @@ export default function Home() {
       <SEO pageTitle="Home" />
       <Hero></Hero>
       <main>
-        <Heading>Notre Produits</Heading>
+        <Heading>Nos Produits</Heading>
         <Gallery>
           {produits &&
             produits.map((produit) => (
