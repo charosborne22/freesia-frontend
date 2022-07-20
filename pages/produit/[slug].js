@@ -44,6 +44,7 @@ const Details = () => {
             alt={image.data.attributes.alternativeText}
             width={800}
             height={800}
+            objectFit="contain"
           />
           <Description>
             <h1>{titre}</h1>
