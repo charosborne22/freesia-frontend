@@ -50,7 +50,7 @@ export default function Home() {
 
 const Gallery = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
   grid-gap: 2rem;
 
   @media screen and (max-width: 402px) {
