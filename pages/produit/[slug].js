@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { faCircleMinus, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useStateContext } from "../../lib/context";
+import toast from "react-hot-toast";
 const Details = () => {
   const { qty, increaseQty, decreaseQty, onAdd, setQty } = useStateContext();
 
@@ -32,6 +33,11 @@ const Details = () => {
 
   // Extraire les données
   const { titre, description, image, prix } = data.produits.data[0].attributes;
+
+  // Créer un toast
+  const notify = () => {
+    toast.success(`${titre} a été ajouté à votre panier`, { duration: 2000 });
+  };
 
   return (
     <>
@@ -60,6 +66,7 @@ const Details = () => {
             <Button
               onClick={() => {
                 onAdd(data.produits.data[0].attributes, qty);
+                notify();
               }}
             >
               Ajouter au Panier
