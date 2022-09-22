@@ -4,25 +4,32 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useStateContext } from "../lib/context";
 import Panier from "./Panier";
+import User from "./User";
+import { useUser } from "@auth0/nextjs-auth0/dist/frontend/use-user";
 const { AnimatePresence, motion } = require("framer-motion");
 
 const Nav = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { user, error, isLoading } = useUser();
+
   return (
     <NavWrapper>
       <InnerNav>
         <h1>
           <Link href="/">Freesia</Link>
         </h1>
-        <ShoppingBag onClick={() => setShowCart(true)}>
-          {totalQuantities > 0 && (
-            <motion.span animate={{ scale: 1 }} initial={{ scale: 0 }}>
-              {totalQuantities}
-            </motion.span>
-          )}
-          <FontAwesomeIcon icon={faBagShopping} />
-        </ShoppingBag>
-        <AnimatePresence>{showCart && <Panier />}</AnimatePresence>
+        <Menu>
+          <User />
+          <ShoppingBag onClick={() => setShowCart(true)}>
+            {totalQuantities > 0 && (
+              <motion.span animate={{ scale: 1 }} initial={{ scale: 0 }}>
+                {totalQuantities}
+              </motion.span>
+            )}
+            <FontAwesomeIcon icon={faBagShopping} />
+          </ShoppingBag>
+          <AnimatePresence>{showCart && <Panier />}</AnimatePresence>
+        </Menu>
       </InnerNav>
     </NavWrapper>
   );
@@ -45,6 +52,10 @@ const InnerNav = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+`;
+
+const Menu = styled.div`
+  display: flex;
 `;
 
 const ShoppingBag = styled.div`

@@ -39,6 +39,8 @@ const Details = () => {
     toast.success(`${titre} a été ajouté à votre panier`, { duration: 2000 });
   };
 
+  console.log(data.produits.data[0].attributes);
+
   return (
     <>
       <SEO pageTitle={titre} />
