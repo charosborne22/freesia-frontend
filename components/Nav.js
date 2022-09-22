@@ -56,14 +56,15 @@ const InnerNav = styled.div`
 
 const Menu = styled.div`
   display: flex;
+
+  svg {
+    width: 1.25rem;
+  }
 `;
 
 const ShoppingBag = styled.div`
   position: relative;
   cursor: pointer;
-  svg {
-    width: 1.25rem;
-  }
 
   span {
     background: #ff2626;

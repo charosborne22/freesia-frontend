@@ -73,7 +73,9 @@ export default function Profil({ user, orders }) {
               </TableWrapper>
             )}
 
-            {orders.length <= 0 && <Rien>Aucune commande n'a été trouvée</Rien>}
+            {orders.length <= 0 && (
+              <Rien>Aucune commande n&apos;a été trouvée</Rien>
+            )}
 
             <Logout onClick={() => route.push("/api/auth/logout")}>
               Se déconnecter
