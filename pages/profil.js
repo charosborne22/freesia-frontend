@@ -52,7 +52,6 @@ export default function Profil({ user, orders }) {
                     <tr>
                       <th>Nombre de commande</th>
                       <th>Total</th>
-                      <th>Reçu</th>
                     </tr>
                   </thead>
 
@@ -61,11 +60,6 @@ export default function Profil({ user, orders }) {
                       <tr key={order.id}>
                         <td>{order.id}</td>
                         <td>{order.amount / 100} $</td>
-                        <td>
-                          <Link href={order.charges.data[0].receipt_url}>
-                            <a target="_blank">Voir</a>
-                          </Link>
-                        </td>
                       </tr>
                     ))}
                   </tbody>
